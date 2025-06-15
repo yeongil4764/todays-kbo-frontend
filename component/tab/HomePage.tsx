@@ -1,22 +1,22 @@
-import { AntDesign } from '@expo/vector-icons';
-import { useCallback, useState } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
   FlatList,
-  TouchableOpacity,
   Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
-import { addDays, format, subDays } from 'date-fns';
-import { ko } from 'date-fns/locale';
-import TeamBox from '../../component/TeamBox';
-import { GAME_DATA } from '../../constants/sampleData';
+import React, { useCallback, useState } from 'react';
+import TeamBox from '../TeamBox';
 import { useRouter } from 'expo-router';
+import { addDays, format, subDays } from 'date-fns';
+import { GAME_DATA } from '../../constants/sampleData';
+import { AntDesign } from '@expo/vector-icons';
+import { ko } from 'date-fns/locale';
 
 const ICON_SIZE = 18;
 
-export default function Tab() {
+const HomePage = ({ height }: { height: number }) => {
   const router = useRouter();
   const [date, setDate] = useState(new Date());
 
@@ -32,12 +32,12 @@ export default function Tab() {
     setDate(addDays(date, 1));
   }, [date]);
 
-  const renderItem = useCallback(({ item, index }) => {
+  const renderItem = useCallback(({ item }: { item: any }) => {
     const isHomeTeamWin = item.homeScore > item.awayScore;
     return (
       <View
         style={{
-          height: 120,
+          height: height / 5 - 20,
           gap: 16,
           paddingHorizontal: 32,
           flexDirection: 'row',
@@ -54,20 +54,22 @@ export default function Tab() {
           }}
           children={item.homeScore}
         />
-        <View style={{ gap: 5, width: 80, alignItems: 'center' }}>
+        <View style={{ gap: 10, alignItems: 'center' }}>
           <Text
             style={{ fontSize: 22, fontWeight: 'bold' }}
             children={item.gameEnded ? '종료' : '진행중'}
           />
-          <TouchableOpacity
-            style={styles.actionButton}
-            onPress={() => onPressReview(item.id)}
-          >
-            <Text children={'리뷰'} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.actionButton}>
-            <Text children={'하이라이트'} />
-          </TouchableOpacity>
+          <View style={{ flexDirection: 'row', gap: 5 }}>
+            <TouchableOpacity
+              style={styles.actionButton}
+              onPress={() => onPressReview(item.id)}
+            >
+              <Text children={'리뷰'} />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.actionButton}>
+              <Text children={'H/L'} />
+            </TouchableOpacity>
+          </View>
         </View>
 
         <Text
@@ -120,17 +122,19 @@ export default function Tab() {
       </View>
     </View>
   );
-}
+};
+
+export default HomePage;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 16,
-    paddingVertical: 8,
+    justifyContent: 'center',
     backgroundColor: '#EFF2F7',
   },
   actionButton: {
-    width: '100%',
+    width: 50,
     height: 25,
     alignItems: 'center',
     justifyContent: 'center',
@@ -143,6 +147,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 26,
     alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(111,2,139, .3)',
   },
   headerDateContainer: {
     flexDirection: 'row',

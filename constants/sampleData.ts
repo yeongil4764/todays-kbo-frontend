@@ -81,12 +81,25 @@ export const GAME_DETAIL_DATA = {
       image: 'https://example.com/jeon-junwoo.png',
     },
     summary: {
-      hits: { lotte: 17, kt: 15 },
-      homeRuns: { lotte: 0, kt: 2 },
-      strikeOuts: { lotte: 11, kt: 10 },
-      steals: { lotte: 1, kt: 0 },
-      doublePlays: { lotte: 0, kt: 1 },
-      errors: { lotte: 0, kt: 2 },
+      hits: { away: 17, home: 15 },
+      homeRuns: { away: 0, home: 2 },
+      strikeOuts: { away: 11, home: 10 },
+      steals: { away: 1, home: 0 },
+      doublePlays: { away: 0, home: 1 },
+      errors: { away: 0, home: 2 },
     },
   },
+};
+
+export const TEAM_INFO = {
+  '롯데 자이언츠': '#002955',
+  '삼성 라이온즈': '#004A98',
+  '키움 히어로즈': '#70263F',
+  '두산 베어스': '#0B2044',
+  'LG 트윈스': '#E0302D',
+  'SSG 랜더스': '#E60026',
+  '한화 이글스': '#FF6900',
+  'KT 위즈': '#000000',
+  'NC 다이노스': '#0E3386',
+  'KIA 타이거즈': '#EA0029',
 };

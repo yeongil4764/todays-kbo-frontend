@@ -1,49 +1,57 @@
-import {
-  Image,
-  ImageSourcePropType,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import React from 'react';
-export const getTeamImage = (
-  teamName: string,
-): ImageSourcePropType | undefined => {
+import { Image, StyleSheet, Text, View } from 'react-native';
+import React, { JSX } from 'react';
+export const getTeamImage = (teamName: string): JSX.Element => {
+  let logo;
   switch (teamName) {
     case '롯데 자이언츠':
-      return require('../assets/lotte.png');
+      logo = require('../assets/lotte.png');
+      break;
     case '삼성 라이온즈':
-      return require('../assets/samsung.png');
+      logo = require('../assets/samsung.png');
+      break;
     case '키움 히어로즈':
-      return require('../assets/kiwoom.png');
+      logo = require('../assets/kiwoom.png');
+      break;
     case '두산 베어스':
-      return require('../assets/doosan.png');
+      logo = require('../assets/doosan.png');
+      break;
     case 'LG 트윈스':
-      return require('../assets/lg.png');
+      logo = require('../assets/lg.png');
+      break;
     case 'SSG 랜더스':
-      return require('../assets/ssg.png');
+      logo = require('../assets/ssg.png');
+      break;
     case '한화 이글스':
-      return require('../assets/hanwha.png');
+      logo = require('../assets/hanwha.png');
+      break;
     case 'KT 위즈':
-      return require('../assets/kt.png');
+      logo = require('../assets/kt.png');
+      break;
     case 'NC 다이노스':
-      return require('../assets/nc.png');
+      logo = require('../assets/nc.png');
+      break;
     case 'KIA 타이거즈':
-      return require('../assets/kia.png');
+      logo = require('../assets/kia.png');
+      break;
     default:
-      return undefined;
+      logo = undefined;
   }
+
+  return (
+    <Image
+      style={{ height: 40, width: 40 }}
+      source={logo}
+      resizeMode="contain"
+    />
+  );
 };
 
 const TeamBox = (props: { teamName: string; isWin?: boolean }) => {
   const logo = getTeamImage(props.teamName);
+
   return (
     <View style={{ alignItems: 'center', gap: 5 }}>
-      <Image
-        style={{ height: 40, width: 40 }}
-        source={logo}
-        resizeMode="contain"
-      />
+      {logo}
       <Text
         style={{
           color: props.isWin ? '#2563EB' : '#DC2626',
