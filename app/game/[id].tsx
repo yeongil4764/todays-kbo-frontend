@@ -1,16 +1,16 @@
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import KboTopBar from '../../component/common/KboTopBar';
+import KboTopBar from '@components/KboTopBar';
 import { AntDesign } from '@expo/vector-icons';
 import { useCallback } from 'react';
-import { GAME_DETAIL_DATA, TEAM_INFO } from '../../constants/sampleData';
+import { GAME_DETAIL_DATA, TEAM_INFO } from '@constants/sampleData';
 import { format } from 'date-fns';
 import { ko } from 'date-fns/locale';
-import { getTeamImage } from '../../component/TeamBox';
-import InningBox from '../../component/InningBox';
-import LabelBox from '../../component/common/LabelBox';
-import SummaryBox from '../../component/SummaryBox';
+import { getTeamImage } from '@features/home/components/TeamBox';
+import InningBox from '@features/game/components/InningBox';
+import LabelBox from '@components/LabelBox';
+import SummaryBox from '@features/game/components/SummaryBox';
 
 const GameDetailScreen = () => {
   const { id } = useLocalSearchParams<{ id: string }>();

@@ -1,17 +1,17 @@
 import { View, StyleSheet, Dimensions, Text, Pressable } from 'react-native';
 import Carousel, { ICarouselInstance } from 'react-native-reanimated-carousel';
-import HomePage from '../component/tab/HomePage';
+import HomePage from '@features/home/components/HomePage';
 import {
   SafeAreaView,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 import { useMemo, useRef, useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
-import TeamPage from '../component/tab/TeamPage';
-import RankingPage from '../component/tab/RankingPage';
-import CommunityPage from '../component/tab/CommunityPage';
-import { TOP_BAR_HEIGHT } from '../constants/layout';
-import KboTopBar from '../component/common/KboTopBar';
+import TeamPage from '@features/home/components/TeamPage';
+import RankingPage from '@features/home/components/RankingPage';
+import CommunityPage from '@features/home/components/CommunityPage';
+import { TOP_BAR_HEIGHT } from '@constants/layout';
+import KboTopBar from '@components/KboTopBar';
 
 const { width, height } = Dimensions.get('window');
 

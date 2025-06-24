@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React, { JSX } from 'react';
-import { TOP_BAR_HEIGHT } from '../../constants/layout';
+import { TOP_BAR_HEIGHT } from '@constants/layout';
 
 const KboTopBar = (props: { leftComponent: JSX.Element; title?: string }) => {
   return (

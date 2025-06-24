@@ -7,10 +7,10 @@ import {
   View,
 } from 'react-native';
 import React, { useCallback, useState } from 'react';
-import TeamBox from '../TeamBox';
+import TeamBox from './TeamBox';
 import { useRouter } from 'expo-router';
 import { addDays, format, subDays } from 'date-fns';
-import { GAME_DATA } from '../../constants/sampleData';
+import { GAME_DATA } from '../../../constants/sampleData';
 import { AntDesign } from '@expo/vector-icons';
 import { ko } from 'date-fns/locale';
 
