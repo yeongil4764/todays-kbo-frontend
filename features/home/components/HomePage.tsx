@@ -13,12 +13,16 @@ import { addDays, format, subDays } from 'date-fns';
 import { GAME_DATA } from '../../../constants/sampleData';
 import { AntDesign } from '@expo/vector-icons';
 import { ko } from 'date-fns/locale';
+import { useDailyGame } from 'queries/game/useDailyGame';
 
 const ICON_SIZE = 18;
 
 const HomePage = ({ height }: { height: number }) => {
   const router = useRouter();
   const [date, setDate] = useState(new Date());
+  const { data, isLoading } = useDailyGame(
+    format(date, 'yyyy-MM-dd', { locale: ko }),
+  );
 
   const onPressReview = useCallback((gameID: string) => {
     router.push(`/game/${gameID}`);

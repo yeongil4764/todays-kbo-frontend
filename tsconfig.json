@@ -10,6 +10,7 @@
       "@constants/*": ["constants/*"],
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"]
-    }
+    },
+    "types": ["./custom.d.ts"]
   }
 }

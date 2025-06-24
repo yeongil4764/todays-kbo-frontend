@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
+    "@tanstack/react-query": "^5.81.2",
+    "axios": "^1.10.0",
     "date-fns": "^4.1.0",
     "expo": "53.0.11",
     "expo-constants": "^17.1.6",
@@ -38,6 +40,8 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "prettier": "^3.5.3",
     "react-native-svg-transformer": "^1.5.1",
+    "reactotron-apisauce": "^3.0.6",
+    "reactotron-react-native": "^5.1.14",
     "typescript": "~5.8.3"
   },
   "private": true

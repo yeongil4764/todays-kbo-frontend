@@ -1,0 +1,20 @@
+export type DailyGame = {
+  awayCurrentPitcherName: string;
+  awayStarterName: string;
+  awayTeamName: string;
+  awayTeamScore: number;
+  cancel: boolean;
+  gameDate: string;
+  gameId: string;
+  home: boolean;
+  homeCurrentPitcherName: string;
+  homeStarterName: string;
+  homeTeamName: string;
+  homeTeamScore: number;
+  losePitcherName: string;
+  stadium: string;
+  statusLabel: string;
+  weekday: string;
+  winPitcherName: string;
+  winner: string;
+};
